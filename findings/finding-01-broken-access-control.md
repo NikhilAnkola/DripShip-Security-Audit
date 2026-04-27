@@ -46,7 +46,19 @@ verifyToken
 ```
 
 ## Evidence
-See screenshots folder.
+
+### 1. Route lacks authentication middleware
+![Route Missing Authentication](../screenshots/f1-route-without-auth.png)
+
+---
+
+### 2. Unauthenticated user enumeration
+![API Response Exposure](../screenshots/f1-unauthenticated-api-response.png)
+
+---
+
+### 3. Sensitive data disclosure impact
+![Exposed User Data](../screenshots/f1-exposed-user-data-impact.png)
 
 ## Remediation (To Be Implemented)
 Require authentication and role checks.

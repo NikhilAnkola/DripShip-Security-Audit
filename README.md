@@ -49,7 +49,7 @@ Documented, exploitation validated.
 
 Detailed writeup:
 See:
-`findings/finding-01-broken-access-control.md`
+`findings/finding-01-user-enumeration-broken-access-control.md`
 
 ## Planned Work
 - Exploit JWT trust issues

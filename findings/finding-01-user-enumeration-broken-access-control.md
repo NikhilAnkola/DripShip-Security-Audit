@@ -1,7 +1,12 @@
 # Finding 01 — Broken Access Control
 
 ## Severity
-High
+Medium-High
+
+## Risk Summary
+Confidentiality: High  
+Integrity: Low  
+Availability: None
 
 ## Category
 OWASP Broken Access Control
@@ -33,16 +38,18 @@ An attacker can:
 
 ## Root Cause
 
-Route lacks authentication middleware:
+Route lacks authentication middleware protection.
+
+Current vulnerable implementation:
 
 ```javascript
-router.get('/', async (req,res)=>{
+router.get('/', async (req,res) => {
 ```
 
-Should require:
+Expected secure pattern:
 
 ```javascript
-verifyToken
+router.get('/', verifyToken, async (req,res) => {
 ```
 
 ## Evidence
@@ -60,5 +67,8 @@ verifyToken
 ### 3. Sensitive data disclosure impact
 ![Exposed User Data](../screenshots/f1-exposed-user-data-impact.png)
 
-## Remediation (To Be Implemented)
-Require authentication and role checks.
+## Remediation (Planned)
+- Protect endpoint using JWT authentication middleware
+- Restrict user listing to admin roles only
+- Apply least privilege access control
+- Return only current authenticated user data when possible

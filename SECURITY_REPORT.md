@@ -34,7 +34,8 @@ Out of Scope:
 |----|---------|----------|--------|
 | 01 | User Enumeration via Broken Access Control | Medium-High | Confirmed |
 | 02 | Insecure JWT Storage (Token Theft Risk) | Medium | Confirmed |
-| 03 | Insecure Direct Object Reference (IDOR) | Pending | Planned |
+| 03 | Insecure Direct Object Reference (IDOR) | TBD | Planned |
+| 04 | Hardcoded JWT Secret Fallback | TBD | Planned |
 
 ---
 
@@ -59,14 +60,31 @@ Detailed writeup:
 
 ---
 
+### Finding 02 — Insecure JWT Storage
+
+Description:
+JWT session tokens are stored in browser localStorage and are accessible to client-side JavaScript.
+
+Impact:
+- Session theft via XSS
+- Token replay risk
+- Account hijacking potential
+
+Detailed writeup:
+
+[Finding 02 Report](findings/finding-02-insecure-jwt-storage.md)
+
+---
+
 ## Current Security Issues Confirmed
 - Missing authorization control on user listing endpoint
+- JWT stored insecurely in localStorage
 
 ---
 
 ## Planned Assessments
-- JWT token manipulation / abuse testing
 - IDOR testing against cart functionality
+- Hardcoded JWT secret assessment
 - Additional authorization checks
 
 ---

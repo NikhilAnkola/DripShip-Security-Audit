@@ -18,11 +18,11 @@ This project includes:
 - Postman (for API testing)
 - Burp Suite (planned)
 
-## Security Findings (In Progress)
-- [x] Broken Access Control / Information Disclosure
-- [ ] JWT Forgery
-- [ ] IDOR
-- [ ] NoSQL Injection
+## Security Findings
+- [x] Broken Access Control / User Enumeration
+- [x] Insecure JWT Storage (Token Theft Risk)
+- [ ] IDOR (Planned)
+- [ ] Hardcoded JWT Secret Review (Planned)
 - [ ] Additional findings TBD
 
 ## Repository Structure
@@ -35,28 +35,35 @@ backend/             Application backend
 src/                 Frontend
 ```
 
-## Current Finding
-### Finding 01 — Unauthenticated User Enumeration
-Endpoint:
+## Current Findings
 
+### Finding 01 — Broken Access Control
+Endpoint:
 GET /api/users
 
 Issue:
 Users can be enumerated without authentication.
 
-Status:
-Documented, exploitation validated.
+Detailed writeup:
+findings/finding-01-broken-access-control.md
+
+
+### Finding 02 — Insecure JWT Storage
+Issue:
+JWT authentication tokens are stored in browser localStorage and accessible to JavaScript.
+
+Risk:
+Potential token theft through XSS.
 
 Detailed writeup:
-See:
-`findings/finding-01-user-enumeration-broken-access-control.md`
+findings/finding-02-insecure-jwt-storage.md
 
 ## Planned Work
-- Exploit JWT trust issues
-- Test IDOR through cart functionality
-- Attempt NoSQL injection
-- Implement secure fixes
+- Test IDOR in cart ownership logic
+- Assess hardcoded JWT secret risk
+- Implement remediations for confirmed issues
 - Compare vulnerable vs remediated versions
+- Expand toward additional OWASP findings
 
 ## Author
 Nikhil Ankola

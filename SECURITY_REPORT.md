@@ -34,8 +34,8 @@ Out of Scope:
 |----|---------|----------|--------|
 | 01 | User Enumeration via Broken Access Control | Medium-High | Confirmed |
 | 02 | Insecure JWT Storage (Token Theft Risk) | Medium | Confirmed |
-| 03 | Insecure Direct Object Reference (IDOR) | TBD | Planned |
-| 04 | Hardcoded JWT Secret Fallback | TBD | Planned |
+| 03 | Authentication Endpoint Lacks Brute Force Protections | Medium | Confirmed |
+| 04 | Insecure Direct Object Reference (IDOR) | Planned | Planned |
 
 ---
 
@@ -76,15 +76,32 @@ Detailed writeup:
 
 ---
 
+### Finding 03 — Authentication Endpoint Lacks Brute Force Protections
+
+Description:
+Backend login endpoint accepts unlimited authentication attempts without rate limiting or server-side lockout.
+
+Impact:
+- Brute-force attacks
+- Password spraying
+- Frontend lockout bypass
+
+Detailed writeup:
+
+[Finding 03 Report](findings/finding-03-brute-force-protection.md)
+
+---
+
 ## Current Security Issues Confirmed
 - Missing authorization control on user listing endpoint
 - JWT stored insecurely in localStorage
+- Missing backend brute-force protections
 
 ---
 
 ## Planned Assessments
 - IDOR testing against cart functionality
-- Hardcoded JWT secret assessment
+- JWT trust boundary assessment
 - Additional authorization checks
 
 ---

@@ -3,8 +3,12 @@
 ## Severity
 Medium
 
+Reason:
+Escalates to High when combined with XSS.
+
 ## Category
-OWASP Cryptographic Failures / Session Management Weakness
+OWASP A07 Identification and Authentication Failures
+Session Management Weakness
 
 ## Description
 JWT session tokens are stored in browser localStorage.

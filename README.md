@@ -21,8 +21,8 @@ This project includes:
 ## Security Findings
 - [x] Broken Access Control / User Enumeration
 - [x] Insecure JWT Storage (Token Theft Risk)
+- [x] Missing Server-Side Brute Force Protection
 - [ ] IDOR (Planned)
-- [ ] Hardcoded JWT Secret Review (Planned)
 - [ ] Additional findings TBD
 
 ## Repository Structure
@@ -58,10 +58,24 @@ Potential token theft through XSS.
 Detailed writeup:
 findings/finding-02-insecure-jwt-storage.md
 
+### Finding 03 — Authentication Endpoint Lacks Brute Force Protections
+
+Endpoint:
+POST /api/users/login
+
+Issue:
+Login API allows unlimited repeated authentication attempts.
+
+Risk:
+Brute-force and password spraying exposure.
+
+Detailed writeup:
+findings/finding-03-brute-force-protection.md
+
 ## Planned Work
 - Test IDOR in cart ownership logic
-- Assess hardcoded JWT secret risk
-- Implement remediations for confirmed issues
+- Assess JWT trust boundary weaknesses
+- Implement remediations in secure branch
 - Compare vulnerable vs remediated versions
 - Expand toward additional OWASP findings
 

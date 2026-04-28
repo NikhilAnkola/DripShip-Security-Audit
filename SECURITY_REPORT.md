@@ -33,7 +33,7 @@ Out of Scope:
 | ID | Finding | Severity | Status |
 |----|---------|----------|--------|
 | 01 | User Enumeration via Broken Access Control | Medium-High | Confirmed |
-| 02 | JWT Token Weakness Assessment | In Progress | Testing |
+| 02 | Insecure JWT Storage (Token Theft Risk) | Medium | Confirmed |
 | 03 | Insecure Direct Object Reference (IDOR) | Pending | Planned |
 
 ---

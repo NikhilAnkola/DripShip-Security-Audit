@@ -35,7 +35,7 @@ Out of Scope:
 | 01 | User Enumeration via Broken Access Control | Medium-High | Confirmed |
 | 02 | Insecure JWT Storage (Token Theft Risk) | Medium | Confirmed |
 | 03 | Authentication Endpoint Lacks Brute Force Protections | Medium | Confirmed |
-| 04 | Insecure Direct Object Reference (IDOR) | Planned | Planned |
+| 04 | Weak JWT Secret & Token Forgery Risk | High | Confirmed |
 
 ---
 
@@ -92,17 +92,32 @@ Detailed writeup:
 
 ---
 
+### Finding 04 — Weak JWT Secret & Token Trust
+Description:
+JWT implementation uses fallback secret and lacks strict validation.
+
+Risk:
+Token forgery → full authentication bypass.
+
+[Finding 04 Report](findings/finding-04-jwt-secret-misconfiguration.md)
+
+---
+
 ## Current Security Issues Confirmed
 - Missing authorization control on user listing endpoint
 - JWT stored insecurely in localStorage
 - Missing backend brute-force protections
+- Weak JWT secret handling and trust model
 
 ---
 
-## Planned Assessments
-- IDOR testing against cart functionality
-- JWT trust boundary assessment
-- Additional authorization checks
+## Recommendations Summary
+
+- Enforce authentication on all sensitive endpoints
+- Store tokens securely (HttpOnly cookies)
+- Implement rate limiting and lockout mechanisms
+- Use strong JWT secrets with no fallback
+- Add token validation and lifecycle management
 
 ---
 

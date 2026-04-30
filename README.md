@@ -1,13 +1,15 @@
 # DripShip Security Audit Lab
 
 ## Overview
-A security assessment project built on a MERN e-commerce application to study and demonstrate real-world web vulnerabilities based on OWASP Top 10 principles.
+A security assessment project built on a MERN e-commerce application to identify and demonstrate real-world web vulnerabilities based on OWASP Top 10 principles.
 
 This project includes:
 - Vulnerability discovery
 - Exploitation proof-of-concepts
-- Remediation implementations
-- Security documentation
+- Security impact analysis
+- Remediation recommendations
+
+---
 
 ## Tech Stack
 - MongoDB
@@ -15,15 +17,20 @@ This project includes:
 - React
 - Node.js
 - JWT Authentication
-- Postman (for API testing)
+- Postman (API testing)
 - Burp Suite (planned)
 
+---
+
 ## Security Findings
+
 - [x] Broken Access Control / User Enumeration
 - [x] Insecure JWT Storage (Token Theft Risk)
 - [x] Missing Server-Side Brute Force Protection
-- [ ] IDOR (Planned)
+- [x] Weak JWT Secret & Token Forgery Risk
 - [ ] Additional findings TBD
+
+---
 
 ## Repository Structure
 
@@ -72,12 +79,21 @@ Brute-force and password spraying exposure.
 Detailed writeup:
 findings/finding-03-brute-force-protection.md
 
+## Finding 04 — Weak JWT Secret & Token Trust
+
+Issue:
+JWT uses fallback hardcoded secret and lacks strict validation.
+
+Risk:
+Token forgery → full account takeover.
+
+Detailed writeup:
+findings/finding-04-jwt-secret-misconfiguration.md
+
 ## Planned Work
-- Test IDOR in cart ownership logic
-- Assess JWT trust boundary weaknesses
-- Implement remediations in secure branch
+- Add additional OWASP vulnerabilities (e.g., NoSQL Injection)
+- Implement secure remediations in separate branch
 - Compare vulnerable vs remediated versions
-- Expand toward additional OWASP findings
 
 ## Author
 Nikhil Ankola

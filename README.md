@@ -58,10 +58,10 @@ This project demonstrates:
 ## 📂 Repository Structure
 
 ```
-findings/            Detailed vulnerability reports
-screenshots/         Proof-of-concept evidence
-backend/             Vulnerable backend application
-src/                 Frontend application
+findings/                 Detailed vulnerability reports
+screenshots/              Proof-of-concept evidence
+backend/                  Vulnerable backend application
+src/                      Frontend application
 docs/SECURITY_REPORT.md   Consolidated audit report
 ```
 

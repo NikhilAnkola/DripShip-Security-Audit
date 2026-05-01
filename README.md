@@ -62,7 +62,7 @@ findings/            Detailed vulnerability reports
 screenshots/         Proof-of-concept evidence
 backend/             Vulnerable backend application
 src/                 Frontend application
-SECURITY_REPORT.md   Consolidated audit report
+docs/SECURITY_REPORT.md   Consolidated audit report
 ```
 
 ---

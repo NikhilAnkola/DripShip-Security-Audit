@@ -1,99 +1,94 @@
-# DripShip Security Audit Lab
+# 🔐 DripShip Security Audit Lab
 
-## Overview
-A security assessment project built on a MERN e-commerce application to identify and demonstrate real-world web vulnerabilities based on OWASP Top 10 principles.
+## 📌 Overview
 
-This project includes:
-- Vulnerability discovery
-- Exploitation proof-of-concepts
-- Security impact analysis
-- Remediation recommendations
+This project is a **manual security assessment** of a MERN-based e-commerce application, focused on identifying and exploiting vulnerabilities aligned with the **OWASP Top 10**.
+
+The goal is to simulate real-world attacker behavior, demonstrate exploitability, and document security risks with clear remediation strategies.
 
 ---
 
-## Tech Stack
-- MongoDB
-- Express.js
-- React
-- Node.js
-- JWT Authentication
-- Postman (API testing)
-- Burp Suite (planned)
+## 🚀 Key Highlights
+
+* Identified multiple **critical security vulnerabilities**
+* Demonstrated **real exploit scenarios**
+* Performed **API-level testing using Postman**
+* Analyzed **authentication and authorization flows**
+* Produced structured **security audit reports**
 
 ---
 
-## Security Findings
+## 🛠 Tech Stack
 
-- [x] Broken Access Control / User Enumeration
-- [x] Insecure JWT Storage (Token Theft Risk)
-- [x] Missing Server-Side Brute Force Protection
-- [x] Weak JWT Secret & Token Forgery Risk
-- [ ] Additional findings TBD
+* MongoDB
+* Express.js
+* React.js
+* Node.js
+* JWT Authentication
+* Postman (API testing)
 
 ---
 
-## Repository Structure
+## ⚠️ Security Findings
 
-```text
-findings/            Individual vulnerability writeups
-screenshots/         Evidence and proof-of-concepts
-SECURITY_REPORT.md   Consolidated security report
-backend/             Application backend
-src/                 Frontend
+| ID | Finding                                    | Severity |
+| -- | ------------------------------------------ | -------- |
+| 01 | Broken Access Control (User Enumeration)   | High     |
+| 02 | Insecure JWT Storage (Token Theft Risk)    | Medium   |
+| 03 | Missing Server-Side Brute Force Protection | Medium   |
+| 04 | Weak JWT Secret & Token Trust              | High     |
+
+---
+
+## 🧪 Exploitation Summary
+
+This project demonstrates:
+
+* 🔓 Unauthenticated access to sensitive user data
+* 🔑 JWT token exposure via localStorage
+* 🔁 Unlimited login attempts (no backend protection)
+* 🧬 Ability to forge tokens if JWT secret is weak or exposed
+
+---
+
+## 📂 Repository Structure
+
+```
+findings/            Detailed vulnerability reports
+screenshots/         Proof-of-concept evidence
+backend/             Vulnerable backend application
+src/                 Frontend application
+SECURITY_REPORT.md   Consolidated audit report
 ```
 
-## Current Findings
+---
 
-### Finding 01 — Broken Access Control
-Endpoint:
-GET /api/users
+## 📄 Detailed Reports
 
-Issue:
-Users can be enumerated without authentication.
+* Finding 01 → Broken Access Control
+* Finding 02 → Insecure JWT Storage
+* Finding 03 → Brute Force Vulnerability
+* Finding 04 → Weak JWT Secret & Token Trust
 
-Detailed writeup:
-findings/finding-01-broken-access-control.md
+(See `/findings` folder)
 
+---
 
-### Finding 02 — Insecure JWT Storage
-Issue:
-JWT authentication tokens are stored in browser localStorage and accessible to JavaScript.
+## 🧠 What This Project Demonstrates
 
-Risk:
-Potential token theft through XSS.
+* Security mindset (thinking like an attacker)
+* Understanding of authentication flaws
+* Practical OWASP Top 10 application
+* Ability to document real vulnerabilities professionally
 
-Detailed writeup:
-findings/finding-02-insecure-jwt-storage.md
+---
 
-### Finding 03 — Authentication Endpoint Lacks Brute Force Protections
+## ⚠️ Disclaimer
 
-Endpoint:
-POST /api/users/login
+This project is created **strictly for educational purposes** to demonstrate web security concepts and should not be used for unauthorized testing.
 
-Issue:
-Login API allows unlimited repeated authentication attempts.
+---
 
-Risk:
-Brute-force and password spraying exposure.
+## 👨‍💻 Author
 
-Detailed writeup:
-findings/finding-03-brute-force-protection.md
-
-## Finding 04 — Weak JWT Secret & Token Trust
-
-Issue:
-JWT uses fallback hardcoded secret and lacks strict validation.
-
-Risk:
-Token forgery → full account takeover.
-
-Detailed writeup:
-findings/finding-04-jwt-secret-misconfiguration.md
-
-## Planned Work
-- Add additional OWASP vulnerabilities (e.g., NoSQL Injection)
-- Implement secure remediations in separate branch
-- Compare vulnerable vs remediated versions
-
-## Author
-Nikhil Ankola
+**Nikhil Ankola**

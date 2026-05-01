@@ -87,6 +87,14 @@ SECURITY_REPORT.md   Consolidated audit report
 
 ---
 
+## 🧬 Future Improvements
+- Implement secure authentication using HttpOnly cookies
+- Add rate limiting to login endpoints
+- Introduce role-based access control
+- Secure JWT secret handling
+
+---
+
 ## ⚠️ Disclaimer
 
 This project is created **strictly for educational purposes** to demonstrate web security concepts and should not be used for unauthorized testing.

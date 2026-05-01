@@ -1,3 +1,7 @@
+![OWASP](https://img.shields.io/badge/OWASP-Top%2010-red)
+![Security](https://img.shields.io/badge/Focus-Web%20Security-blue)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+
 # 🔐 DripShip Security Audit Lab
 
 ## 📌 Overview
